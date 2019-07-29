@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Virtual Medicine Cabinet! </title>
+        <title> Your Medication Cabinet </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel = "stylesheet" href = "style.css" type = "text/css" />
@@ -9,8 +9,10 @@
     </head>
     
     <body>
-        <h1> <center> Welcome to your Virtual Medicine Cabinet! </center></h1>
-        <p><a href = "/addNew"> Add a New Medication! </a></p>
-        
+        <ul>
+          {% for med in collection %}
+            <li>{{ med['name']}}</li>
+          {% endfor %}
+        </ul>
     </body>
 </html>
