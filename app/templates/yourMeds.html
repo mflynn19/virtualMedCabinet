@@ -11,8 +11,16 @@
     <body>
     <!--need to make it so that if they just want to view medications it is direct from the DB not the form-->
         <ul>
-          {% for med in collection %}
-            <li>{{ med['name']}}</li>
+          {% for med in meds %}
+          <div class="row">
+                <div class="col s6">
+                  <div class="card cyan">
+                    <div class="card-content white-text">
+                      <span class="card-title"> {{med.name}} </span>
+                      <p>You have {{med.amount}} left of {{med.name}} as perscribed by {{med.doc}} for {{med.purpose}}. This medication is a {{med.type}}. </a></p>
+                    </div>
+                  </div>
+                </div>
           {% endfor %}
         </ul>
     </body>

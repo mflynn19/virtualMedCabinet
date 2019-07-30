@@ -23,7 +23,7 @@ def yourMeds():
         formData = dict(request.form)
         collection = mongo.db.medications
         collection.insert({"name": formData["medName"], "purpose":formData["medPurpose"], "doc":formData["doctor"], "amount":formData["medCount"], "type":formData["medType"]})
-        collection = list(collection.find({}))
-        return render_template("yourMeds.html", collection=collection)
+        meds = list(collection.find({}))
+        return render_template("yourMeds.html", meds = meds)
     else:
         return render_template("yourMeds.html")

@@ -6,14 +6,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel = "stylesheet" href = "style.css" type = "text/css" />
         <link rel = "icon" href = "https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo center">Add New Medication! </a>
+            </div>
+        </nav>
     </head>
     
     <body>
-        <h4> Add a New Medication! </h4>
-        <form method = 'post' action = '/yourMeds'>
+        
+        <h4> Add New... </h4>
+        <form method = 'post' action = '/yourMeds' autocomplete="on">
           <label for="medName"> Medication Name </label></br>
           <input type="text" name="medName"/></br>
-          <label for="medPurpose"> Medication Purpose </label></br>
+          <label for="medPurpose"> Medication Purpose </label></br> 
           <input type="text" name="medPurpose"/></br>
           <label for="doctor"> Medication Perscriber (ex. Dr. Smith - Podiatrist) </label></br>
           <input type="text" name="doctor"/></br>
