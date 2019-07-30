@@ -26,4 +26,20 @@ def yourMeds():
         meds = list(collection.find({}))
         return render_template("yourMeds.html", meds = meds)
     else:
-        return render_template("yourMeds.html")
+        collection = mongo.db.medications
+        meds = list(collection.find({}))
+        return render_template("yourMeds.html", meds = meds)
+
+@app.route('/adjustMed', methods = ['GET', 'POST'])
+def adjustMed():
+    if request.method == 'POST':
+        formData = dict(request.form)
+        collection = mongo.db.medications
+        #causing problems bc TypeError: upsert must be True or False
+        collection.update({"name": formData["drugName"]}, {"purpose":formData["drugPurpose"]}, {"doc":formData["drugDoctor"]},{"amount":formData["drugAmount"]}, {"type":formData["drugType"]})
+        meds = list(collection.find({}))
+        return render_template("adjustMed.html", meds = meds)
+    else:
+        collection = mongo.db.medications
+        meds = list(collection.find({}))
+        return render_template("adjustMed.html", meds = meds)

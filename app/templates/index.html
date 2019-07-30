@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Virtual Medicine Cabinet! </title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel = "stylesheet" href = "style.css" type = "text/css" />
-        <link rel = "icon" href = "https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
-        
-        <nav>
-            <div class="nav-wrapper blue-grey darken-1">
-              <a href="#!" class="brand-logo red-text text-lighten-2 flow-text center"><i class="material-icons">Virtual Medicine Cabinet</a>
-                <ul class="right hide-on-med-and-down">
-              <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/addNew"> Add New Medication</a></li>
-                <li><a href="/yourMeds"> Your Current Medications </a></li>
-              </ul>
-            </div>
-        </nav>
-    </head>
-    
-    <body>
-        <!--<a class="waves-effect waves-light btn" href = "/addNew">Add a New Medication!</a>-->
-        <!--<a class="waves-effect waves-light btn" href = "/yourMeds"> View Your Medications!!</a>-->
 
-        
-    </body>
+<head>
+  <title> Virtual Medicine Cabinet! </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="icon" href="https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
+
+  <nav>
+    <!--adjust for pharmacy locator tag-->
+    <div class="nav-wrapper blue-grey darken-1">
+      <a href="/index" class="brand-logo red-text text-lighten-2 flow-text center"><i class="material-icons">Virtual Medicine Cabinet</a>
+      <ul class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/addNew"> Add New Medication</a></li>
+          <li><a href="/yourMeds"> Your Current Medications </a></li>
+          <li><a href="/adjustMed"> Take/Refill Medications </a></li>
+           <li><a href="/pharmacyLocator"> Take/Refill Medications </a></li>
+        </ul>
+    </div>
+  </nav>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s4 deep-orange lighten-5 z-depth-3 center-align">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Blank_Map_of_New_York_Counties.svg/655px-Blank_Map_of_New_York_Counties.svg.png" height=auto width="300"></img>
+        <h5> NY Medication Reclaim Links </h5>
+        <a href="https://www.productstewardship.us/page/1068"> Product Stewardship </a>
+        <br>
+        <a href="https://www.walgreens.com/topic/pharmacy/safe-medication-disposal.jsp"> Walgreens</a>
+
+      </div>
+      <div class="col s4 deep-orange lighten-5 z-depth-3 center-align">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/New_Jersey_Counties_by_metro_area_labeled.svg/170px-New_Jersey_Counties_by_metro_area_labeled.svg.png"></img>
+        <h5> NJ Medication Reclaim Links </h5>
+        <a href="https://www.njconsumeraffairs.gov/meddrop/Pages/default.aspx"> NJ Consumer Affairs </a>
+        <br>
+        <a href="https://njhazwaste.com/hot-topics/medicine-disposal/"> ANJHHWC</a>
+
+      </div>
+      <div class="col s4 deep-orange lighten-5 z-depth-3 center-align">
+        <img class = "responsive-image" src="https://visitpa.com/sites/all/themes/ssnresponsive/images/full_map.png" height=auto width="300"></img>
+        <h5> PA Medication Reclaim Links </h5>
+        <a href="https://apps.ddap.pa.gov/GetHelpNow/PillDrop.aspx">  Get Help Now </a>
+        <br>
+        <a href="https://www.ddap.pa.gov/Prevention/Pages/Drug_Take_Back.aspx">DDAP</a>
+      </div>
+    </div>
+</body>
+
 </html>

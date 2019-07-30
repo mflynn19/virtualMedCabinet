@@ -6,6 +6,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel = "stylesheet" href = "style.css" type = "text/css" />
         <link rel = "icon" href = "https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
+      <nav>
+            <div class="nav-wrapper blue-grey darken-1">
+              <a href="" class="brand-logo red-text text-lighten-2 flow-text center"><i class="material-icons">Virtual Medicine Cabinet</a>
+                <ul class="right hide-on-med-and-down">
+              <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/addNew"> Add New Medication</a></li>
+                <li><a href="/yourMeds"> Your Current Medications </a></li>
+                <li><a href="/adjustMed"> Take/Refill Medications </a></li>
+              </ul>
+            </div>
+        </nav>
     </head>
     
     <body>
@@ -17,7 +28,10 @@
                   <div class="card cyan">
                     <div class="card-content white-text">
                       <span class="card-title"> {{med.name}} </span>
-                      <p>You have {{med.amount}} left of {{med.name}} as perscribed by {{med.doc}} for {{med.purpose}}. This medication is a {{med.type}}. </a></p>
+                      <p>You have {{med.amount}} pills/mL left of {{med.name}} as perscribed by {{med.doc}} {{med.purpose}}. This medication is a {{med.type}}. </a></p>
+                    </div>
+                    <div class="card-action white-text">
+                      <a href="/adjustMed"> Take Medication / Refill Medication </a>
                     </div>
                   </div>
                 </div>

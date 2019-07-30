@@ -9,3 +9,7 @@ mongo = PyMongo(app)
 client = MongoClient("mongodb+srv://admin:Hjrf6Twqr304AJHq@cluster0-3hcwl.mongodb.net/virtualMedCabinet?retryWrites=true&w=majority")
 db = client['virtualMedCabinet']
 collection = mongo.db.medications
+
+
+
+
