@@ -47,13 +47,15 @@ def adjustMed():
         
 @app.route('/pharmacyLocator', methods = ['GET', 'POST'])
 def pharmacyLocator():
-    if request.method == "POST":
-        formData = dict(request.form)
-        collection.insert({"zipCode": formData["zipCode"]})
-        return render_template("pharmacyLocator.html", zipCode = zipCode)
+    if request.method == 'POST':
+        formStuff = dict(request.form)
+        collection = mongo.db.zipCodes
+        collection.insert({"zipCode": formStuff["zipCode"]})
+        zippy = list(collection.find({}))
+        return render_template("pharmacyLocator.html", zippy = zippy)
     else:
         collection = mongo.db.medications
-        collection.update({"zipCode": formData["zipCode"]})
-        return render_template("pharmacyLocator.html", zipCode = zipCode)
+        zippy = list(collection.find({}))
+        return render_template("pharmacyLocator.html", zippy = zippy)
         
 #get object id to query DB, jinja2{{}} teplate to set values based on key ({{data.doctor}}), post request to update entry for everything; update({{what to find in db}}, {{field to update use from form}}) collection.find_one_and_update gets the first instance and updates find_one({'_id': ObjectId(string version of ID)})

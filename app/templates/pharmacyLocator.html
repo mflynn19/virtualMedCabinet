@@ -3,17 +3,58 @@
 
 <head>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+    <title> Find a Pharmacy </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="icon" href="https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
 
+    <nav>
+        <div class="nav-wrapper deep-orange lighten-2">
+            <a href="/index" class="brand-logo white-text text-lighten-2 flow-text left"><i class="material-icons">Virtual Medicine Cabinet</a>
+            <ul class="right hide-on-med-and-down">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/addNew"> Add New Medication</a></li>
+                    <li><a href="/yourMeds"> Your Current Medications </a></li>
+                    <li><a href="/adjustMed"> Take/Refill Medications </a></li>
+                    <li><a href="/pharamcyLocator"> Pharmacy Locator </a></li>
+                </ul>
+        </div>
+    </nav>
+    
+      <title>Google API Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 
+
+
 <body>
-    <title> Need to pick up a refill?</title>
-    <form method='post' action='/pharmacyLocator' autocomplete="on">
-        <label for="zipCode"> What's your zip code? </label></br>
-        <input type="text" name="zipCode" /></br>
-         <div id="map"></div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
-    </form>
+    <br>
+    <h5> <center> Find a Pharmacy Near You </center></h5>
+    <div class = "container">
+        <form method='post' action='/pharmacyLocator' autocomplete="on">
+            <!--<label for="zipCode"> What's your zip code? </label></br>-->
+            <!--<input type="text" name="zipCode" /></br>-->
+            <!--<input type="submit" value="Submit"/>-->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3024.204394705583!2d-74.03700758109568!3d40.71351676068993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spharmacies+near+me!5e0!3m2!1sen!2sus!4v1564581578961!5m2!1sen!2sus" width="1000" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div id="map"></div>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+        </form>
+    </div>
+    
+    
+    
+    
+   
+  <body>
+    <input type="text" id="query" placeholder="Search for something...">
+    <button id="search">Search</button>
+    <div id="image"></div>
+    
+
+  </body>
+</html>
 </body>
 
 </html>
