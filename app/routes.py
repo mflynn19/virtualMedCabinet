@@ -34,11 +34,9 @@ def yourMeds():
 
 @app.route('/adjustMed', methods = ['GET', 'POST'])
 def adjustMed():
-    #get object id to query DB, jinja2{{}} teplate to set values based on key ({{data.doctor}}), post request to update entry for everything; update({{what to find in db}}, {{field to update use from form}}) collection.find_one_and_update gets the first instance and updates find_one({'_id': ObjectId(string version of ID)})
     if request.method == 'POST':
         formData = dict(request.form)
         collection = mongo.db.medications
-        #causing problems bc TypeError: upsert must be True or False
         collection.replace_one({"name": formData["drugName"]}, {"name": formData["drugName"], "purpose":formData["drugPurpose"], "doc":formData["drugDoctor"], "amount":formData["drugAmount"], "type":formData["drugType"]})
         meds = list(collection.find({}))
         return render_template("adjustMed.html", meds = meds)
@@ -57,3 +55,5 @@ def pharmacyLocator():
         collection = mongo.db.medications
         collection.update({"zipCode": formData["zipCode"]})
         return render_template("pharmacyLocator.html", zipCode = zipCode)
+        
+#get object id to query DB, jinja2{{}} teplate to set values based on key ({{data.doctor}}), post request to update entry for everything; update({{what to find in db}}, {{field to update use from form}}) collection.find_one_and_update gets the first instance and updates find_one({'_id': ObjectId(string version of ID)})
