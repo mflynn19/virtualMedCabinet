@@ -7,10 +7,10 @@
         <link rel = "stylesheet" href = "style.css" type = "text/css" />
         <link rel = "icon" href = "https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
       <nav>
-            <div class="nav-wrapper blue-grey darken-1">
-              <a href="" class="brand-logo red-text text-lighten-2 flow-text center"><i class="material-icons">Virtual Medicine Cabinet</a>
+            <div class="nav-wrapper deep-orange lighten-2">
+              <a href="" class="brand-logo white-text text-lighten-2 flow-text left"><i class="material-icons">Virtual Medicine Cabinet</a>
                 <ul class="right hide-on-med-and-down">
-              <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/addNew"> Add New Medication</a></li>
                 <li><a href="/yourMeds"> Your Current Medications </a></li>
                 <li><a href="/adjustMed"> Take/Refill Medications </a></li>
@@ -23,6 +23,7 @@
     
     <body>
       <!--need to make things actually update now and get the historical DB values-->
+      <br>
       <div class = "container">
         <form method = 'post' action = '/adjustMed' autocomplete="on">
           <label for="drugName"> Medication Name </label></br>
@@ -30,9 +31,9 @@
           <label for="drugPurpose"> Medication Purpose (ex. to relieve aches and pains) </label></br> 
           <input type="text" name="drugPurpose"/></br>
           <label for="drugDoctor"> Medication Perscriber (ex. Dr. Smith - Podiatrist) </label></br>
-          <input type="text" name="drugDoctor" value = {{meds.doc}}></br>
+          <input type="text" name="drugDoctor"></br>
           <label for="drugAmount"> New Medication Bottle Amount (ex. '10' pills or '200' mL)</label></br>
-          <input type="text" name="drugAmount" value = "words"/></br>
+          <input type="text" name="drugAmount"</br>
           <label for="drugType"> Medication Description (ex. purple liquid, red pill. blue gel capsule etc) </label></br>
           <input type="text" name="drugType"/></br>
           

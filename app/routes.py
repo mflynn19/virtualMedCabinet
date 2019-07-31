@@ -2,6 +2,8 @@ from app import app
 from flask import render_template, request
 from app.models import model, formopener
 from flask_pymongo import PyMongo
+from flask import Flask
+from flask_googlemaps import GoogleMaps
 
 app.config['MONGO_DBNAME'] = 'virtualMedCabinet' 
 app.config['MONGO_URI'] = 'mongodb+srv://admin:Hjrf6Twqr304AJHq@cluster0-3hcwl.mongodb.net/virtualMedCabinet?retryWrites=true&w=majority'
@@ -32,14 +34,26 @@ def yourMeds():
 
 @app.route('/adjustMed', methods = ['GET', 'POST'])
 def adjustMed():
+    #get object id to query DB, jinja2{{}} teplate to set values based on key ({{data.doctor}}), post request to update entry for everything; update({{what to find in db}}, {{field to update use from form}}) collection.find_one_and_update gets the first instance and updates find_one({'_id': ObjectId(string version of ID)})
     if request.method == 'POST':
         formData = dict(request.form)
         collection = mongo.db.medications
         #causing problems bc TypeError: upsert must be True or False
-        collection.update({"name": formData["drugName"]}, {"purpose":formData["drugPurpose"]}, {"doc":formData["drugDoctor"]},{"amount":formData["drugAmount"]}, {"type":formData["drugType"]})
+        collection.replace_one({"name": formData["drugName"]}, {"name": formData["drugName"], "purpose":formData["drugPurpose"], "doc":formData["drugDoctor"], "amount":formData["drugAmount"], "type":formData["drugType"]})
         meds = list(collection.find({}))
         return render_template("adjustMed.html", meds = meds)
     else:
         collection = mongo.db.medications
         meds = list(collection.find({}))
         return render_template("adjustMed.html", meds = meds)
+        
+@app.route('/pharmacyLocator', methods = ['GET', 'POST'])
+def pharmacyLocator():
+    if request.method == "POST":
+        formData = dict(request.form)
+        collection.insert({"zipCode": formData["zipCode"]})
+        return render_template("pharmacyLocator.html", zipCode = zipCode)
+    else:
+        collection = mongo.db.medications
+        collection.update({"zipCode": formData["zipCode"]})
+        return render_template("pharmacyLocator.html", zipCode = zipCode)
