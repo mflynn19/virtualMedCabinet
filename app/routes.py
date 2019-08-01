@@ -24,7 +24,7 @@ def yourMeds():
     if request.method == 'POST':
         formData = dict(request.form)
         collection = mongo.db.medications
-        collection.insert({"name": formData["medName"], "purpose":formData["medPurpose"], "doc":formData["doctor"], "amount":formData["medCount"], "type":formData["medType"]})
+        collection.insert({"name": formData["medName"], "purpose":formData["medPurpose"], "doc":formData["doctor"], "amount":formData["medCount"], "type":formData["medType"],"expiration":formData["medExp"] })
         meds = list(collection.find({}))
         return render_template("yourMeds.html", meds = meds)
     else:
@@ -37,7 +37,7 @@ def adjustMed():
     if request.method == 'POST':
         formData = dict(request.form)
         collection = mongo.db.medications
-        collection.replace_one({"name": formData["drugName"]}, {"name": formData["drugName"], "purpose":formData["drugPurpose"], "doc":formData["drugDoctor"], "amount":formData["drugAmount"], "type":formData["drugType"]})
+        collection.replace_one({"name": formData["drugName"]}, {"name": formData["drugName"], "purpose":formData["drugPurpose"], "doc":formData["drugDoctor"], "amount":formData["drugAmount"], "expiration":formData["drugExp"]})
         meds = list(collection.find({}))
         return render_template("adjustMed.html", meds = meds)
     else:

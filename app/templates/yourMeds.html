@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Your Medication Cabinet </title>
+      <title> Your Medication Cabinet </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel = "stylesheet" href = "style.css" type = "text/css" />
-        <link rel = "icon" href = "https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2019/1-pill.jpg">
-      <nav>
-            <div class="nav-wrapper deep-orange lighten-2">
-              <a href="/index" class="brand-logo white-text text-lighten-2 flow-text left"><i class="material-icons">Virtual Medicine Cabinet</a>
-                <ul class="right hide-on-med-and-down">
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/addNew"> Add New Medication</a></li>
-                <li><a href="/yourMeds"> Your Current Medications </a></li>
-                <li><a href="/adjustMed"> Take/Refill Medications </a></li>
-                <li><a href="/pharmacyLocator"> Pharmacy Locator </a></li>
-              </ul>
-            </div>
+        <link rel="icon" href="https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
+        
+        <nav style = "min-height: 80px">
+          <div class="nav-wrapper blue-grey lighten-1">
+            <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
+            <ul class="right hide-on-med-and-down">
+              <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
+                <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
+                <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
+                <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
+            </ul>
+          </div>
         </nav>
     </head>
+        
     
     <body>
     <!--need to make it so that if they just want to view medications it is direct from the DB not the form-->
@@ -26,13 +28,10 @@
           {% for med in meds %}
           <div class="row">
                 <div class="col s3">
-                  <div class="card cyan">
+                  <div class="card blue-grey lighten-2">
                     <div class="card-content white-text">
                       <span class="card-title"> {{med.name}} </span>
-                      <p>You have {{med.amount}} pills/mL left of {{med.name}} as perscribed by {{med.doc}} {{med.purpose}}. This medication is a {{med.type}}. </a></p>
-                    </div>
-                    <div class="card-action white-text">
-                      <a class ="brown-text" href="/adjustMed"> Take Medication / Refill Medication </a>
+                      <p>You have {{med.amount}} pills/mL left of {{med.name}} as perscribed by {{med.doc}} {{med.purpose}}. This medication is a {{med.type}} that will expire on {{med.expiration}}.</a></p>
                     </div>
                   </div>
                 </div>
