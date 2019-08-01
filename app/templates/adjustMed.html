@@ -28,9 +28,21 @@
     </head>
     
     <body>
-      <!--need to make things actually update now and get the historical DB values-->
       <br>
-      <h5> <center> Edit Information on a Medication </center> </h5>
+      <div class = "row">
+        <div class = "col s3 grey lighten-2 z-depth-1 center-align">
+        <h5> Your Current Cabinet </h5>
+        {% for med in meds %}
+          <div class = "blue-text text-darken-3"
+          <h6> {{med.name}} : {{med.amount}} pills/mL</h6>
+          </div>
+          <p> Purpose: {{med.purpose}} Perscriber: {{med.doc}} Purpose: {{med.description}} Expiration Date: {{med.expiration}}</p>
+          
+        {% endfor %}
+      </div>
+      
+      <div class = "col s9 grey lighten-3 z-depth-1 center-align">
+        <h5> <center> Edit Information on a Medication </center> </h5>
       <div class = "container">
         <form method = 'post' action = '/adjustMed' autocomplete="on">
           <label for="drugName"> Medication Name </label></br>
@@ -46,8 +58,8 @@
           <label for="drugExp"> New Medication Expiration Date </label></br>
           <input type="date"  class="datepicker" name="drugExp"</br>
           
-          <input type="submit" value="Submit"/>
-          
+          <button class="actions special btn-flat blue-grey lighten-1 white-text" type="submit" name="action" >Submit </button>
         </form>
-      </div>
+      <br>
+    </div>
     </body>
