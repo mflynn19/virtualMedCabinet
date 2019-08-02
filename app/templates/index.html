@@ -10,19 +10,20 @@
   
   <nav style = "min-height: 80px">
     <div class="nav-wrapper blue-grey lighten-1">
-      <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
+      <a href="/index" class="brand-logo white-text"><h4>Virtual Medicine Cabinet</h4></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-trigger right blue-grey lighten-1" href="#!" data-target="dropdown1">Dropdown Menu<i class="large material-icons">view_headline</i></a></li>
+         <li><a class="blue-grey-text text-lighten-1 dropdown-trigger " href="#!" data-target="dropdown1">_______________________<i class="large material-icons right" style="color:white">view_headline</i></a></li>
+    </ul>
     </div>
     </div>
   </nav>
   
-  <ul id="dropdown1" class="dropdown-content">
-    <li> <a href="/yourMeds"> Your Current Medications </a></li>
-    <li><a href="/addNew"> Add New Medication </a></li>
-    <li><a href="/adjustMed"> Take/Refill Medications </a></li>
-    <li><a href="/delMed"> Delete Medication </a></li>
-    <li><a href="/pharmacyLocator"> Find a Pharmacy </a></li>
+  <ul id="dropdown1" class="dropdown-content blue-grey lighten-1 white-text">
+    <li> <a class = "white-text" href="/yourMeds"> Your Current Medications </a></li>
+    <li><a class = "white-text" href="/addNew"> Add New Medication </a></li>
+    <li><a class = "white-text" href="/adjustMed"> Take/Refill Medications </a></li>
+    <li><a class = "white-text" href="/delMed"> Delete Medication </a></li>
+    <li><a class = "white-text" href="/pharmacyLocator"> Find a Pharmacy </a></li>
   </ul>
   
 </head>
@@ -94,7 +95,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script>$('.dropdown-trigger').dropdown();</script>
+<script>$('.dropdown-trigger').dropdown({coverTrigger: false});</script>
 
 </body>
             
