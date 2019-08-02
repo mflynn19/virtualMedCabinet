@@ -4,40 +4,42 @@
         <title> Add New Medication </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel = "stylesheet" href = "style.css" type = "text/css" />
-        <link rel = "icon" href = "https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="icon" href="https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
         
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   
         <nav style = "min-height: 80px">
           <div class="nav-wrapper blue-grey lighten-1">
-            <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
-            <ul class="right hide-on-med-and-down">
-              <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
-                <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
-                <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
-                <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
-            </ul>
+          <a href="/index" class="brand-logo white-text text-lighten-2"><h4> Virtual Medicine Cabinet </h4></a>
+          <ul class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
+            <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
+            <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
+            <li><a href="/delMed"><h6> Delete Medication </h6> </a></li>
+            <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
+          </ul>
           </div>
         </nav>
     </head>
     
     <body>
-        <h4><center> Add New Medication </center> </h4>
+      <div class = "row">
         <div class = "container">
+          <h4><center> Add New Medication </center> </h4>
           <form method = 'post' action = '/yourMeds' autocomplete="on">
             <label for="medName"> Medication Name </label></br>
             <input type="text" name="medName"/></br>
             <label for="medPurpose"> Medication Purpose (ex. to relieve aches and pains) </label></br> 
             <input type="text" name="medPurpose"/></br>
+            <label for="medPatient"> Intended Patient (ex. Grandmother, Dad etc.)</label></br>
+            <input type="text" name="medPatient"/></br>
             <label for="doctor"> Medication Perscriber (ex. Dr. Smith - Podiatrist) </label></br>
             <input type="text" name="doctor"/></br>
-            <label for="medCount"> Medication Bottle Amount (ex. '10' pills or '200' mL)</label></br>
+            <label for="medCount"> Medication Bottle Amount (ex. '10 pills' or '200 mL')</label></br>
             <input type="text" name="medCount"/></br>
             <label for="medType"> Medication Description (ex. purple liquid, red pill. blue gel capsule etc) </label></br>
             <input type="text" name="medType"/></br>
@@ -47,5 +49,6 @@
             <button class="actions special btn-flat blue-grey lighten-1 white-text" type="submit" name="action" >Submit </button>
           </form>
         </div>
+      </div>
     </body>
 </html>

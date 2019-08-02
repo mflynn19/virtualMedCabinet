@@ -4,23 +4,27 @@
 <head>
   <title> Virtual Medicine Cabinet! </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="icon" href="https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
-
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
   <nav style = "min-height: 80px">
     <div class="nav-wrapper blue-grey lighten-1">
-      <a href="/index" class="brand-logo white-text text-lighten-2"><h4><b> Virtual Medicine Cabinet </b></h4></a>
+      <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
       <ul class="right hide-on-med-and-down">
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
-          <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
-          <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
-          <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
-        </ul>
+        <li><a class="dropdown-trigger right" href="#!" data-target="dropdown1"><i class="large material-icons">view_headline</i></a></li>
+    </div>
     </div>
   </nav>
+  
+  <ul id="dropdown1" class="dropdown-content">
+    <li> <a href="/yourMeds"> Your Current Medications </a></li>
+    <li><a href="/addNew"> Add New Medication </a></li>
+    <li><a href="/adjustMed"> Take/Refill Medications </a></li>
+    <li><a href="/delMed"> Delete Medication </a></li>
+    <li><a href="/pharmacyLocator"> Find a Pharmacy </a></li>
+  </ul>
+  
 </head>
 
 <body>
@@ -77,14 +81,21 @@
               <div class="col l4 offset-l2 s12">
                 <h6 class="white-text">Pages:</h6>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="/addNew">Add New Medication</a></li>
                   <li><a class="grey-text text-lighten-3" href="/yourMeds">Your Current Medications</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/addNew">Add New Medication</a></li>
                   <li><a class="grey-text text-lighten-3" href="/adjustMed">Take/Refill Medications</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/delMed">Delete Medication</a></li>
                   <li><a class="grey-text text-lighten-3" href="/pharmacyLocator">Find a Pharmacy Near Me</a></li>
                 </ul>
               </div>
             </div>
         </footer>
-            
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>$('.dropdown-trigger').dropdown();</script>
+
 </body>
+            
 </html>

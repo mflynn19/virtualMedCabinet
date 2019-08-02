@@ -12,9 +12,10 @@
             <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
             <ul class="right hide-on-med-and-down">
               <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
                 <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
+                <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
                 <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
+                <li><a href="/delMed"><h6> Delete Medication </h6> </a></li>
                 <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
             </ul>
           </div>
@@ -32,6 +33,8 @@
                     <div class="card-content white-text">
                       <span class="card-title"> {{med.name}} </span>
                       <p>You have {{med.amount}} pills/mL left of {{med.name}} as perscribed by {{med.doc}} {{med.purpose}}. This medication is a {{med.type}} that will expire on {{med.expiration}}.</a></p>
+                      <br>
+                      <p> for {{med.patient}}</p>
                     </div>
                   </div>
                 </div>

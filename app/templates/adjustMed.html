@@ -8,8 +8,6 @@
         <link rel = "icon" href = "https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
       
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
         <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
         
@@ -18,9 +16,10 @@
               <a href="/index" class="brand-logo white-text text-lighten-2"><h4>Virtual Medicine Cabinet</h4></a>
               <ul class="right hide-on-med-and-down">
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                  <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
                   <li><a href="/yourMeds"><h6> Your Current Medications</h6> </a></li>
+                  <li><a href="/addNew"><h6> Add New Medication</h6> </a></li>
                   <li><a href="/adjustMed"><h6> Take/Refill Medications</h6> </a></li>
+                  <li><a href="/delMed"><h6> Delete Medication </h6> </a></li>
                   <li><a href="/pharmacyLocator"><h6> Find a Pharmacy </h6> </a></li>
               </ul>
             </div>
@@ -34,7 +33,7 @@
         <h5> Your Current Cabinet </h5>
         {% for med in meds %}
           <div class = "blue-text text-darken-3"
-          <h6> {{med.name}} : {{med.amount}} pills/mL</h6>
+          <h6> {{med.name}} : {{med.amount}} </h6>
           </div>
           <p> Purpose: {{med.purpose}} Perscriber: {{med.doc}} Purpose: {{med.description}} Expiration Date: {{med.expiration}}</p>
           
@@ -49,9 +48,11 @@
           <input type="text" name="drugName"/></br>
           <label for="drugPurpose"> Medication Purpose (ex. to relieve aches and pains) </label></br> 
           <input type="text" name="drugPurpose"/></br>
+          <label for="drugPatient"> Intended Patient (ex. Grandmother, Dad etc.)</label></br>
+          <input type="text" name="drugPatient"/></br>
           <label for="drugDoctor"> Medication Perscriber (ex. Dr. Smith (Podiatrist) ) </label></br>
           <input type="text" name="drugDoctor"></br>
-          <label for="drugAmount"> New Medication Bottle Amount (ex. '10' pills or '200' mL)</label></br>
+          <label for="drugAmount"> New Medication Bottle Amount (ex. '10 pills' or '200 mL')</label></br>
           <input type="text" name="drugAmount"</br>
           <label for="drugType"> Medication Description (ex. purple liquid, red pill. blue gel capsule etc) </label></br>
           <input type="text" name="drugType"/></br>
