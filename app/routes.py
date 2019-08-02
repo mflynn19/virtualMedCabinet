@@ -24,7 +24,7 @@ def delMed():
     if request.method == 'POST':
         formData = dict(request.form)
         collection = mongo.db.medications
-        collection.delete_one({"name":formData["delName"]})
+        collection.delete_one({"name":formData["delName"], "patient":formData["delPat"]})
         meds = list(collection.find({}))
         return render_template("delMed.html", meds = meds)
     else:

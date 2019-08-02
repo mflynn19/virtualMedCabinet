@@ -31,9 +31,11 @@
             <h4><center> Delete a Medication </center> </h4>
             <p> We hope since you are on this page that you have disposed of your old/unused medications! Please use the resources on the home page to find drug take-back locations near you & more tips to safely dispose of medications!</p>
             <img src="https://www.fda.gov/files/drugs-img-safety-disposal-infographic-disposal-options.png" style = "width: 70%"></img><br>
-            <form method = 'post' action = '/yourMeds' autocomplete="on">
+            <form method = 'post' action = '/delMed' autocomplete="on">
                 <label for="delName"> Medication Name </label></br>
                 <input type="text" name="delName"/></br>
+                <label for="delPat"> Patient Name </label></br>
+                <input type="text" name="delPat"/></br>
                 <button class="actions special btn-flat blue-grey lighten-1 white-text" type="submit" name="action" >Submit </button>
             </form>
           
