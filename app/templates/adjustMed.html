@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Your Medication Cabinet </title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel = "stylesheet" href = "style.css" type = "text/css" />
-        <link rel = "icon" href = "https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
-        <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
-        <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-        <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
-        
-        <nav style = "min-height: 80px">
-          <div class="nav-wrapper blue-grey lighten-1">
-            <a href="/index" class="brand-logo white-text"><h4>Virtual Medicine Cabinet</h4></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a class="blue-grey-text text-lighten-1 dropdown-trigger " href="#!" data-target="dropdown1">_______________________<i class="large material-icons right" style="color:white">view_headline</i></a></li>
-              </ul>
-          </div>
-        </nav>
-  
+
+<head>
+  <title> Your Medication Cabinet </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2017/05/15/21/58/drug-icon-2316244_960_720.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <meta name="viewport" content="width = device-width, initial-scale = 1">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+  <nav style="min-height: 80px">
+    <div class="nav-wrapper blue-grey lighten-1">
+      <a href="/index" class="brand-logo white-text">
+        <h4>Virtual Medicine Cabinet</h4>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="blue-grey-text text-lighten-1 dropdown-trigger " href="#!" data-target="dropdown1">_______________________<i class="large material-icons right" style="color:white">view_headline</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
   <ul id="dropdown1" class="dropdown-content blue-grey lighten-1 white-text">
-    <li> <a class = "white-text" href="/yourMeds"> Your Current Medications </a></li>
-    <li><a class = "white-text" href="/addNew"> Add New Medication </a></li>
-    <li><a class = "white-text" href="/adjustMed"> Take/Refill Medications </a></li>
-    <li><a class = "white-text" href="/delMed"> Delete Medication </a></li>
-    <li><a class = "white-text" href="/pharmacyLocator"> Find a Pharmacy </a></li>
+    <li> <a class="white-text" href="/yourMeds"> Your Current Medications </a></li>
+    <li><a class="white-text" href="/addNew"> Add New Medication </a></li>
+    <li><a class="white-text" href="/adjustMed"> Take/Refill Medications </a></li>
+    <li><a class="white-text" href="/delMed"> Delete Medication </a></li>
+    <li><a class="white-text" href="/pharmacyLocator"> Find a Pharmacy </a></li>
   </ul>
-  
-    </head>
-    
-    <body>
-      <br>
-      <div class = "row">
-        <div class = "col s3 grey lighten-2 z-depth-1 center-align">
-        <h5> Your Current Cabinet </h5>
-        {% for med in meds %}
-          <div class = "blue-text text-darken-3"
-          <h6> {{med.name}} : {{med.amount}} </h6>
-          </div>
-          <p> Purpose: {{med.purpose}} Perscriber: {{med.doc}} Purpose: {{med.purpose}} Expiration Date: {{med.expiration}}</p>
-          
-        {% endfor %}
+
+</head>
+
+<body>
+  <br>
+  <div class="row">
+    <div class="col s3 grey lighten-2 z-depth-1 center-align">
+      <h5> Your Current Cabinet </h5>
+      {% for med in meds %}
+      <div class="blue-text text-darken-3" <h6> {{med.name}} : {{med.amount}} </h6>
       </div>
-      
-      <div class = "col s9 grey lighten-3 z-depth-1 center-align">
-        <h5> <center> Edit Information on a Medication </center> </h5>
-      <div class = "container">
-        <form method = 'post' action = '/adjustMed' autocomplete="on">
+      <p> {{med.type}} perscribed by {{med.doc}} {{med.purpose}} for {{med.patient}} -- Expiration Date: {{med.expiration}}</p>
+
+      {% endfor %}
+    </div>
+
+    <div class="col s9 grey lighten-3 z-depth-1 center-align">
+      <h5>
+        <center> Edit Information on a Medication </center>
+      </h5>
+      <div class="container">
+        <form method='post' action='/adjustMed' autocomplete="on">
           <label for="drugName"> Medication Name </label></br>
-          <input type="text" name="drugName"/></br>
-          <label for="drugPurpose"> Medication Purpose (ex. to relieve aches and pains) </label></br> 
-          <input type="text" name="drugPurpose"/></br>
+          <input type="text" name="drugName" /></br>
+          <label for="drugPurpose"> Medication Purpose (ex. to relieve aches and pains) </label></br>
+          <input type="text" name="drugPurpose" /></br>
           <label for="drugPatient"> Intended Patient (ex. Grandmother, Dad etc.)</label></br>
-          <input type="text" name="drugPatient"/></br>
+          <input type="text" name="drugPatient" /></br>
           <label for="drugDoctor"> Medication Perscriber (ex. Dr. Smith (Podiatrist) ) </label></br>
           <input type="text" name="drugDoctor"></br>
           <label for="drugAmount"> New Medication Bottle Amount (ex. '10 pills' or '200 mL')</label></br>
-          <input type="text" name="drugAmount"</br>
+          <input type="text" name="drugAmount" </br>
           <label for="drugType"> Medication Description (ex. purple liquid, red pill. blue gel capsule etc) </label></br>
-          <input type="text" name="drugType"/></br>
+          <input type="text" name="drugType" /></br>
           <label for="drugExp"> New Medication Expiration Date </label></br>
-          <input type="date"  class="datepicker" name="drugExp"</br>
-          
-          <button class="actions special btn-flat blue-grey lighten-1 white-text" type="submit" name="action" >Submit </button>
+          <input type="date" class="datepicker" name="drugExp" </br>
+
+          <button class="actions special btn-flat blue-grey lighten-1 white-text" type="submit" name="action">Submit </button>
         </form>
-      <br>
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+        <br>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-<script>$('.dropdown-trigger').dropdown({coverTrigger: false});</script>
+      <script>
+        $('.dropdown-trigger').dropdown({ coverTrigger: false });
+      </script>
 
-    </body>
+</body>
